@@ -34,7 +34,7 @@ for example /home/user/Desktop/parent_child_project
 | 3 | URL/parents/ | POST | To create a parent | 
 | 4 | URL/parents/id/ | PUT | To update single parent list | 
 | 5 | URL/parents/id/ | DELETE | To delete single parent list |
-| 6 | URL/children | GET | To get all children list |
+| 6 | URL/children/ | GET | To get all children list |
 | 7 | URL/children/id/ | GET | To get single child list |  
 | 8 | URL/children/ | POST | To create a child | 
 | 9 | URL/children/id/ | PUT | To update single child list | 
@@ -59,23 +59,54 @@ for example /home/user/Desktop/parent_child_project
 URL + endpoints examples are given based on Postman
 #### SL. 1
 - Method: GET
+
 - Url: URL/parents/
-- Body > raw
+
+- Body -> raw
 ```
 {	
 
 }
 ```
+
 - Required fields:
 
 | key value|is_required|
 |---|---|
 | | |
+
+- Response:
+```
+[
+    {
+        "id": 1,
+        "first_name": "Saad",
+        "last_name": "khan",
+        "street": "a",
+        "city": "b",
+        "state": "c",
+        "zip": "d",
+        "children": [],
+        "address": "a, b, c, d"
+    },
+    {
+        "id": 2,
+        "first_name": "Zubair",
+        "last_name": "khan",
+        "street": "a",
+        "city": "b",
+        "state": "c",
+        "zip": "d",
+        "children": [],
+        "address": "a, b, c, d"
+    }
+]
+```
 
 #### SL. 2
 - Method: GET
 - Url: URL/parents/id/
-- Body > raw
+- Body -> raw
 ```
 {	
 
@@ -87,10 +118,25 @@ URL + endpoints examples are given based on Postman
 |---|---|
 | | |
 
+- Response:
+```
+{
+    "id": 3,
+    "first_name": "Saad",
+    "last_name": "khan",
+    "street": "a",
+    "city": "b",
+    "state": "c",
+    "zip": "d",
+    "children": [],
+    "address": "a, b, c, d"
+}
+```
+
 #### SL. 3
 - Method: POST
 - Url: URL/parents/
-- Body > raw
+- Body -> raw
 ```
 {
     "first_name": "Saad",
@@ -131,7 +177,7 @@ URL + endpoints examples are given based on Postman
 #### SL. 4
 - Method: PUT
 - Url: URL/parents/id/
-- Body > raw
+- Body -> raw
 ```
 {
     "first_name": "S",
@@ -172,6 +218,29 @@ URL + endpoints examples are given based on Postman
 #### SL. 5
 - Method: DELETE
 - Url: URL/parents/id/
+- Body -> raw
+```
+{
+
+
+}
+```
+- Required fields:
+
+| key value|is_required|
+|---|---|
+| | |
+
+- Response:
+```
+{
+
+}
+```
+
+#### SL. 6
+- Method: GET
+- Url: URL/children/
 - Body > raw
 ```
 {
@@ -183,6 +252,137 @@ URL + endpoints examples are given based on Postman
 
 | key value|is_required|
 |---|---|
+| | |
+
+- Response:
+```
+[
+    {
+        "id": 1,
+        "first_name": "child1",
+        "last_name": "child1",
+        "get_parent": "Saad khan",
+        "address": "a, b, c, d",
+        "parent": 1
+    },
+    {
+        "id": 2,
+        "first_name": "child2",
+        "last_name": "child2",
+        "get_parent": "Saad khan",
+        "address": "a, b, c, d",
+        "parent": 1
+    }
+]
+```
+
+#### SL. 7
+- Method: GET
+- Url: URL/children/id/
+- Body > raw
+```
+{
+
+
+}
+```
+- Required fields:
+
+| key value|is_required|
+|---|---|
+| | |
+
+- Response:
+```
+{
+    "id": 1,
+    "first_name": "child1",
+    "last_name": "child1",
+    "get_parent": "Saad khan",
+    "address": "a, b, c, d",
+    "parent": 1
+}
+```
+
+#### SL. 8
+- Method: POST
+- Url: URL/children/
+- Body > raw
+```
+{
+    "first_name": "child1",
+    "last_name": "child1",
+    "parent": 1
+
+}
+```
+- Required fields:
+
+| key value|is_required|
+|---|---|
+|first_name |True |
+|last_name |True |
+|parent |True |
+
+- Response:
+```
+{
+    "id": 1,
+    "first_name": "child1",
+    "last_name": "child1",
+    "get_parent": "Saad khan",
+    "address": "a, b, c, d",
+    "parent": 1
+}
+```
+
+#### SL. 9
+- Method: PUT
+- Url: URL/children/id/
+- Body > raw
+```
+{
+    "first_name": "child12",
+    "last_name": "child12",
+    "parent": 1
+
+}
+```
+- Required fields:
+
+| key value|is_required|
+|---|---|
+|first_name |True |
+|last_name |True |
+|parent |True |
+
+- Response:
+```
+{
+    "id": 1,
+    "first_name": "child12",
+    "last_name": "child12",
+    "get_parent": "Saad khan",
+    "address": "a, b, c, d",
+    "parent": 1
+}
+```
+
+#### SL. 10
+- Method: DELETE
+- Url: URL/children/id/
+- Body > raw
+```
+{
+
+}
+```
+- Required fields:
+
+| key value|is_required|
+|---|---|
+| | |
+| | |
 | | |
 
 - Response:
